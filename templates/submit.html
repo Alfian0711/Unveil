@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <link rel="shortcut icon" href="/static/img/logo_unveil.png" type="">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style5.css') }}">
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <title style="font-family: Russo One, sans-serif;"> Unveil </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+</head>
+<body>
+     <!-- header section strats -->
+     <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/">
+              <img src="/static/img/logo_unveil.png" alt="" style="width: 150px;">
+            </a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+  
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  mx-auto ">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                </li>
+              </ul>
+             -->
+              <form action="{{url_for('logout')}}" method="post">
+                <button type="submit" class="btn btn-outline-warning rounded-pill ms-3" style="width: 80px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right s-3" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                  </svg>
+                </button>
+            </form>
+                
+            </div>
+  
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+  
+
+    <!-- end client section -->
+
+  <section class="book_section layout_padding" id="input">
+    <div class="container">
+      <div class="heading_container" style="align-items: center">
+        <h2 style="color:#000; font-size: 40px; ">
+          Start Your <span style="color: #efcb56;">Experience</span>
+        </h2>
+      </div>
+
+
+   <!--  Drag n Drop-->
+      <div class="column">
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('scan') }}">
+          <div class="drop-zone">
+            <input type="file" name="file" id="fileInput" multiple />
+            <p id="objectToHide"></p>
+            <div class="preview" type="hidden">
+              <img width="250px" height="250px" id="previewImg" src="" alt="Drag and drop files here or click to upload" style="color: #ff0000;">
+            </div>
+          </div>
+          <button style="margin: 50px;" class="button12 mx-auto" data-toggle="modal" data-target="#exampleModal" id="scan-button" onclick="showLoading()">Scan</button>
+
+          
+          <style>
+            #loading-indicator {
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: transparent; 
+              z-index: 1000;
+            }
+            #loading-indicator img {
+              width: 70%; 
+              height:70%; 
+            }
+          </style>
+          </style>
+          <div id="loading-indicator" style="display: none;">
+            <img src="/static/img/ini.png!c1024wm0" alt="Loading...">
+          </div>
+          
+          <script>
+            function showLoading() {
+              document.getElementById('loading-indicator').style.display = 'block';
+              
+       
+              const formData = new FormData();
+              formData.append('file', fileInput.files[0]);
+          
+              fetch('/scan', {
+                method: 'POST',
+                body: formData,
+              })
+              .then((response) => response.json())
+              .then((data) => {
+                
+                document.getElementById('loading-indicator').style.display = 'none';
+          
+    
+                if (data.status === "success") {
+  
+                  const art = data.art;
+                  const filename = data.filename;
+                  const confidence = data.confidence;
+          
+                  // ...
+                } else if (data.status === "failed") {
+   
+                  console.error('Task gagal');
+                }
+              })
+              .catch((error) => console.error(error));
+            }
+          </script>
+        
+  </section>
+  <!-- end book section -->
+
+
+
+     <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              <span style=" font-family: 'russo one', 'sans-serif'; color: #ad363a;">Unveil</span>
+            </a>
+            <p>
+              Generator Website to check Authenticity your images with AI.
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <img src="/static/img/instagram.png" alt="">
+              </a>
+              <a style="margin:0 15px 0 15px"  href="">
+                <img src="/static/img/twitterx.png" alt="">
+              </a>
+              <a style="margin:0 15px 0 0"  href="">
+                <img src="/static/img/facebook.png" alt="">
+              </a>
+              <a href="">
+                <img src="/static/img/linkedin.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 footer-col">
+          <div class="footer_contact">
+            <h4 style="font-family: 'Russo one','sans-serif';">
+              About 
+            </h4>
+            <div class="contact_link_box">
+              <a href="/about">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  About
+              </a>
+
+              <a href="#more">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                Out Mission 
+              </a>
+
+              <a href="/about">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 footer-col">
+          <h4 style="font-family: 'russo one','sans-serif';">
+            Support Us
+          </h4>
+          <p>
+            Donation
+          </p>
+          <p>
+            Subscribe
+          </p>
+          <p>
+            Follow
+          </p>
+        </div>
+        
+        <div class="col-md-3 footer-col">
+          <h4 style="font-family: 'russo one','sans-serif';">
+            Contact Us
+          </h4>
+          <p>
+            +6285896901300
+          </p>
+          <p>
+            Unveil@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> Unveil
+          <!-- <a href="https://www.instagram.com/afriandckyp?igsh=ZDNqNmh5bzM2dTRj&utm_source=qr"></a><br><br> -->
+          </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+    <!-- jQery -->
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="/static/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="/static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="/static/js/animation.js"></script>
+  <!-- CDN Sweetalert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} mt-3" role="alert">
+                <script>swal("Berhasil!", "{{ message }}", "success");</script>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+</body>
+</html>

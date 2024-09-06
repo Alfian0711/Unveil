@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags dan CSS -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title style="font-family: Russo One, sans-serif;"> Unveil </title>
+    <link rel="shortcut icon" href="/static/img/logo_unveil.png" type="">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style5.css') }}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link href="static/css/responsive.css" rel="stylesheet" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="shortcut icon" href="/static/img/logo_unveil.png" type="">
+</head>
+
+<body>
+    <div class="hero_area">
+        <div class="bg-box">
+            <!-- <img src="static/img/ai3.jpg" alt=""> -->
+        </div>
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="/">
+                    <img src="/static/img/logo_unveil.png" alt="" style="width: 150px;">
+                  </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            
+                        </ul>
+                        <div class="user_option">
+                            <!-- Contoh template HTML -->
+                            <button type="button" id="btn-back" class="btn btn-warning rounded-pill text-white font-bold btn_login mx-3" onclick="window.location.href='/submit_page'">Back</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="card img_result responsive-container mr-5" style="width: 450px; height: 450px;">
+                    <img src="{{ image_url }}" alt="Uploaded Image" class="img-fluid mx-auto mt-4 responsive-img" style="width: 80%; height: 80%; border-radius: 20px;">
+                </div>
+                <div class="content_result ml-3">
+                    <div class="card p-3" style="width: 105%; height: 90%;">
+                        <div class="row">
+                            <div class="img_rslt">
+                                <img src="/static/img/development.png" style="width: 60px; margin-right: 10px; margin-bottom:10px;">
+                            </div>
+                            <h5 class="card-title mt-4">Art :</h5>
+                            <p class="card-text mt-4" style="font-family: Russo One, sans-serif; color: #ff0000; margin-left:5px ;" >{{ art }} </p>
+                        </div>
+                        <div class="row">
+                            <div class="img_rslt">
+                                <img src="/static/img/file.png" style="width: 60px; margin-right: 10px; margin-bottom:10px;">
+                            </div>
+                            <h5 class="card-title mt-4">Filename :</h5>
+                            <p class="card-text mt-4" style="margin-left:5px ;" >{{ filename }}</p>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="img_rslt">
+                                <img src="/static/img/accuracy.png" style="width: 55px; margin-left: 2px; margin-right: 12px; margin-bottom:10px; ">
+                            </div>
+                            <h5 class="card-title mt-4">Confidence :</h5>
+                            <p class="card-text mt-4" style="margin-left:5px ;">{{ confidence }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- footer section -->
+        <footer class="footer_section mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-col">
+                        <div class="footer_detail">
+                            <a href="" class="footer-logo">
+                                <span style="font-family: 'Russo One', 'sans-serif'; color: #ad363a;">Unveil</span>
+                            </a>
+                            <p>Generator Website to check Authenticity your images with AI. Lorem ipsum dolor, sit amet consectetur adipisicing elit Nihil.</p>
+                            <div class="footer_social">
+                                <a href="">
+                                    <img src="/static/img/instagram.png" alt="">
+                                </a>
+                                <a style="margin:0 15px 0 15px" href="">
+                                    <img src="/static/img/twitterx.png" alt="">
+                                </a>
+                                <a style="margin:0 15px 0 0" href="">
+                                    <img src="/static/img/facebook.png" alt="">
+                                </a>
+                                <a href="">
+                                    <img src="/static/img/linkedin.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+      <div class="col-md-3 footer-col">
+        <div class="footer_contact">
+          <h4 style="font-family: 'Russo one','sans-serif';">
+            About 
+          </h4>
+          <div class="contact_link_box">
+            <a href="/about">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                About
+            </a>
+
+            <a href="#more">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              Out Mission 
+            </a>
+
+            <a href="/about">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              Team
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 footer-col">
+        <h4 style="font-family: 'russo one','sans-serif';">
+          Support Us
+        </h4>
+        <p>
+          Donation
+        </p>
+        <p>
+          Subscribe
+        </p>
+        <p>
+          Follow
+        </p>
+      </div>
+      
+      <div class="col-md-3 footer-col">
+        <h4 style="font-family: 'russo one','sans-serif';">
+          Contact Us
+        </h4>
+        <p>
+          +6285896901300
+        </p>
+        <p>
+          Unveil@gmail.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-info">
+      <p>
+        &copy; <span id="displayYear"></span> Unveil
+        <!-- <a href="https://www.instagram.com/afriandckyp?igsh=ZDNqNmh5bzM2dTRj&utm_source=qr"></a><br><br> -->
+        </div>
+  </div>
+</footer>
+<!-- footer section -->
+
+<!-- jQery -->
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<!-- bootstrap js -->
+<script src="/static/js/bootstrap.js"></script>
+<!-- owl slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+<!-- nice select -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<!-- custom js -->
+<script src="/static/js/custom.js"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+</script>
+<!-- End Google Map -->
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="/static/js/animation.js"></script>
+    </body>
+</html>
